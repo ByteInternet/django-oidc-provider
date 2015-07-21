@@ -69,7 +69,8 @@ class UserInfoEndpoint(object):
             'sub': self.token.id_token.get('sub'),
         }
 
-        standard_claims = StandardScopeClaims(self.token.user, self.token.scope)
+        standard_claims = settings.get('OIDC_SCOPE_CLAIMS', import_str=True)(
+            self.token.user, self.token.scope)
 
         dic.update(standard_claims.create_response_dic())
 

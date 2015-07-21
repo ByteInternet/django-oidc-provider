@@ -38,6 +38,14 @@ class DefaultSettings(object):
         return 60*10
 
     @property
+    def OIDC_SCOPE_CLAIMS(self):
+        """
+        OPTIONAL. A string with the location of your class.
+        Used to provide custom scope information for your app.
+        """
+        return 'oidc_provider.lib.claims.StandardScopeClaims'
+
+    @property
     def OIDC_EXTRA_SCOPE_CLAIMS(self):
         """
         OPTIONAL. A string with the location of your class.
